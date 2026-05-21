@@ -1,3 +1,5 @@
+let countdown;
+let timeLeft = 30 * 60;
 let questions = [
 
     {
@@ -341,39 +343,27 @@ function mulaiTes() {
 
     let nama = document.getElementById("nama").value;
     let nip = document.getElementById("nip").value;
-    let jabatan = document.getElementById("jabatan").value;
-    let unit = document.getElementById("unit").value;
     
     peserta = {
         nama: nama,
         nip: nip,
-        jabatan: jabatan,
-        unit: unit
     };
 
 
     if (
         nama == "" ||
-        nip == "" ||
-        jabatan == "" ||
-        unit == ""
-    ) {
+        nip == ""
+     ) {
 
         alert("Harap isi seluruh data diri.");
 
         return;
-
     }
 
-    document.getElementById("nama").remove();
-    document.getElementById("nip").remove();
-    document.getElementById("jabatan").remove();
-    document.getElementById("unit").remove();
-
-
+    document.getElementById("formAwal").remove();
 
     document.getElementById("startButton").style.display = "none";
-
+    startTimer();
     tampilSoal();
 
 }
@@ -384,15 +374,11 @@ function tampilSoal() {
 
     document.getElementById("text").innerHTML =
     `
-        <h2 style="margin-bottom:10px;">
+        <h2>
             Soal ${currentQuestion + 1}
         </h2>
 
-        <p style="
-            font-size:20px;
-            margin-top:0;
-            margin-bottom:20px;
-        ">
+        <p>
             ${q.question}
         </p>
     `;
@@ -489,7 +475,7 @@ function prevQuestion() {
 
 
 function selesaiTes() {
-
+    clearInterval(countdown);
     let score = 0;
 
     for (let i = 0; i < questions.length; i++) {
@@ -549,10 +535,6 @@ function selesaiTes() {
 
         nip: peserta.nip,
 
-        jabatan: peserta.jabatan,
-
-        unit: peserta.unit,
-
         jumlahBenar: score,
 
         iq: iq,
@@ -578,9 +560,7 @@ function selesaiTes() {
 
         "Estimasi IQ: " + iq +
 
-        "<br><br>" +
-
-        "Kategori: " + kategori;
+        "<br><br>";
 
 
 }
@@ -626,7 +606,7 @@ function kembaliCek() {
 }
 
 function finishTest() {
-
+    
     let check =
         document.getElementById("confirmCheck");
 
@@ -642,3 +622,39 @@ function finishTest() {
 
 }
 
+function startTimer() {
+
+    const timer =
+        document.getElementById("timer");
+
+    countdown = setInterval(() => {
+
+        let minutes =
+            Math.floor(timeLeft / 60);
+
+        let seconds =
+            timeLeft % 60;
+
+        seconds =
+            seconds < 10
+            ? "0" + seconds
+            : seconds;
+
+        timer.innerHTML =
+            `${minutes}:${seconds}`;
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+
+            clearInterval(countdown);
+
+            alert("Waktu habis!");
+
+            selesaiTes();
+
+        }
+
+    }, 1000);
+
+}
