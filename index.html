@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Aplikasi Tes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyDlb4n9j0PMbBsPDdcBZKLDUSlOVv5qHaY",
+
+    authDomain: "asesmen-iq.firebaseapp.com",
+
+    projectId: "asesmen-iq",
+
+    storageBucket: "asesmen-iq.firebasestorage.app",
+
+    messagingSenderId: "64808112315",
+
+    appId: "1:64808112315:web:709390914b03359658d99e"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.db = db;
+window.collection = collection;
+window.addDoc = addDoc;
+
+</script>
+
+<body>
+
+<div class="container">
+
+    <h1>Tes IQ Sederhana</h1>
+
+    <input type="text" id="nama" placeholder="Nama Lengkap">
+
+    <br><br>
+
+    <input type="text" id="nip" placeholder="NIP">
+
+    <br><br>
+
+    <input type="text" id="jabatan" placeholder="Jabatan">
+
+    <br><br>
+
+    <input type="text" id="unit" placeholder="Unit Kerja">
+
+    <br><br>
+
+    <p id="text">
+        Selamat datang di aplikasi tes.
+    </p>
+
+    <div id="answers"></div>
+
+    <h2 id="result"></h2>
+
+    <button id="startButton" onclick="mulaiTes()">
+        Mulai Tes
+    </button>
+
+</div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
