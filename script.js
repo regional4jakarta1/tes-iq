@@ -1359,6 +1359,9 @@ function hitungPersonalityScore() {
 
     }
 
+    console.log("Jumlah Soal:", personalityQuestions.length);
+    console.log("Skor:", personalityScore);
+
 }
 
 function jumlahAspekKuat() {
