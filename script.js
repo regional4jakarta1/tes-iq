@@ -1,3 +1,11 @@
+window.history.pushState(null, "", window.location.href);
+
+window.onpopstate = function () {
+    window.history.pushState(null, "", window.location.href);
+};
+
+let currentQuestion = 0;
+let score = 0;
 let countdown;
 let timeLeft = 30 * 60;
 let questions = [
@@ -334,8 +342,449 @@ let questions = [
 
 ];
 
+const personalityQuestions = [
 
-let currentQuestion = 0;
+/* =================================
+   DAYA TAHAN STRES
+   ================================= */
+
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya tetap tenang ketika menghadapi tekanan pekerjaan."
+},
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya mampu bekerja efektif meskipun tenggat waktu sangat ketat."
+},
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya dapat berpikir jernih ketika menghadapi masalah mendadak."
+},
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya tetap fokus meskipun harus menangani banyak pekerjaan sekaligus."
+},
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya mampu mengendalikan emosi ketika menghadapi situasi sulit."
+},
+{
+    aspek: "stres",
+    reverse: false,
+    question: "Saya cepat bangkit setelah mengalami kegagalan."
+},
+{
+    aspek: "stres",
+    reverse: true,
+    question: "Ketika pekerjaan menumpuk saya mudah panik."
+},
+{
+    aspek: "stres",
+    reverse: true,
+    question: "Tekanan pekerjaan sering membuat saya kehilangan fokus."
+},
+{
+    aspek: "stres",
+    reverse: true,
+    question: "Saya mudah menyerah ketika menghadapi hambatan besar."
+},
+{
+    aspek: "stres",
+    reverse: true,
+    question: "Masalah pribadi sering mengganggu pekerjaan saya."
+},
+
+/* =================================
+   KEPERCAYAAN DIRI
+   ================================= */
+
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya yakin mampu menyelesaikan tugas baru yang diberikan kepada saya."
+},
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya berani menyampaikan pendapat dalam diskusi."
+},
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya nyaman berbicara di depan kelompok."
+},
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya percaya diri menghadapi tantangan baru."
+},
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya berani mengambil tanggung jawab yang lebih besar."
+},
+{
+    aspek: "percayaDiri",
+    reverse: false,
+    question: "Saya yakin dapat mencapai target yang ditetapkan."
+},
+{
+    aspek: "percayaDiri",
+    reverse: true,
+    question: "Saya sering meragukan kemampuan diri sendiri."
+},
+{
+    aspek: "percayaDiri",
+    reverse: true,
+    question: "Saya takut menyampaikan ide karena khawatir salah."
+},
+{
+    aspek: "percayaDiri",
+    reverse: true,
+    question: "Saya cenderung menghindari tugas yang menantang."
+},
+{
+    aspek: "percayaDiri",
+    reverse: true,
+    question: "Saya merasa kemampuan saya berada di bawah rekan kerja lainnya."
+}
+/* =================================
+   PENYESUAIAN DIRI
+   ================================= */
+
+,
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya mudah beradaptasi dengan lingkungan kerja baru."
+},
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya nyaman bekerja dengan berbagai tipe orang."
+},
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya mampu menyesuaikan cara komunikasi sesuai lawan bicara."
+},
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya dapat bekerja efektif meskipun terjadi perubahan dalam pekerjaan."
+},
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya menghargai perbedaan pendapat."
+},
+{
+    aspek: "penyesuaian",
+    reverse: false,
+    question: "Saya mampu menjaga hubungan kerja yang baik dengan rekan kerja."
+},
+{
+    aspek: "penyesuaian",
+    reverse: true,
+    question: "Saya merasa tidak nyaman bekerja dengan orang yang berbeda karakter dengan saya."
+},
+{
+    aspek: "penyesuaian",
+    reverse: true,
+    question: "Saya sulit menerima pendapat yang berbeda dengan pandangan saya."
+},
+{
+    aspek: "penyesuaian",
+    reverse: true,
+    question: "Saya kesulitan menyesuaikan diri ketika masuk ke lingkungan baru."
+},
+{
+    aspek: "penyesuaian",
+    reverse: true,
+    question: "Saya mudah terlibat konflik ketika terjadi perbedaan pendapat."
+},
+
+/* =================================
+   INTEGRITAS
+   ================================= */
+
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya tetap jujur meskipun hal tersebut dapat merugikan diri saya sendiri."
+},
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya bertanggung jawab atas kesalahan yang saya lakukan."
+},
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya menjaga kepercayaan yang diberikan kepada saya."
+},
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya tidak memanfaatkan jabatan atau posisi untuk kepentingan pribadi."
+},
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya konsisten antara ucapan dan tindakan."
+},
+{
+    aspek: "integritas",
+    reverse: false,
+    question: "Saya memegang komitmen yang telah saya buat."
+},
+{
+    aspek: "integritas",
+    reverse: true,
+    question: "Melanggar aturan kecil masih dapat dibenarkan dalam kondisi tertentu."
+},
+{
+    aspek: "integritas",
+    reverse: true,
+    question: "Kepentingan pribadi terkadang lebih penting daripada kepentingan organisasi."
+},
+{
+    aspek: "integritas",
+    reverse: true,
+    question: "Saya pernah menyembunyikan informasi agar tidak disalahkan."
+},
+{
+    aspek: "integritas",
+    reverse: true,
+    question: "Saya memilih diam meskipun mengetahui ada tindakan yang tidak sesuai aturan."
+}
+/* =================================
+   GROWTH MINDSET
+   ================================= */
+
+,
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya senang mempelajari hal-hal baru."
+},
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya menerima kritik sebagai sarana pengembangan diri."
+},
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya tidak malu mengakui kesalahan yang saya lakukan."
+},
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya melihat kegagalan sebagai kesempatan belajar."
+},
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya selalu mencari cara untuk meningkatkan kemampuan diri."
+},
+{
+    aspek: "growth",
+    reverse: false,
+    question: "Saya tertarik mencoba metode kerja baru."
+},
+{
+    aspek: "growth",
+    reverse: true,
+    question: "Saya merasa tidak nyaman mengakui kesalahan kepada orang lain."
+},
+{
+    aspek: "growth",
+    reverse: true,
+    question: "Kegagalan biasanya membuat saya enggan mencoba lagi."
+},
+{
+    aspek: "growth",
+    reverse: true,
+    question: "Saya lebih suka menggunakan cara lama daripada mencoba pendekatan baru."
+},
+{
+    aspek: "growth",
+    reverse: true,
+    question: "Jika hasil awal buruk, saya cenderung kehilangan motivasi."
+},
+
+/* =================================
+   BEYOND THE LIMIT
+   ================================= */
+
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya berusaha memberikan hasil kerja melebihi standar minimum."
+},
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya bersedia membantu pekerjaan lain demi tercapainya target tim."
+},
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya memiliki rencana kerja yang jelas."
+},
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya terbiasa menentukan prioritas pekerjaan."
+},
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya memiliki inisiatif tanpa harus selalu menunggu arahan."
+},
+{
+    aspek: "beyond",
+    reverse: false,
+    question: "Saya tetap berusaha mencapai target yang menantang."
+},
+{
+    aspek: "beyond",
+    reverse: true,
+    question: "Saya kesulitan bekerja efektif ketika sumber daya terbatas."
+},
+{
+    aspek: "beyond",
+    reverse: true,
+    question: "Saya lebih suka menunggu instruksi daripada mengambil inisiatif."
+},
+{
+    aspek: "beyond",
+    reverse: true,
+    question: "Saya jarang menyiapkan alternatif solusi ketika menghadapi masalah."
+},
+{
+    aspek: "beyond",
+    reverse: true,
+    question: "Saya menghindari target yang terlalu menantang."
+},
+
+/* =================================
+   PURPOSEFUL WORK
+   ================================= */
+
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya merasa pekerjaan yang saya lakukan memiliki makna dan manfaat."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya merasa bangga menjadi bagian dari organisasi tempat saya bekerja."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya menjaga nama baik perusahaan dalam kehidupan sehari-hari."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya mengutamakan kepentingan organisasi dibanding kepentingan pribadi saat bekerja."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya menjalankan pekerjaan sesuai nilai dan aturan perusahaan."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya menjaga kerahasiaan informasi perusahaan."
+},
+{
+    aspek: "purposeful",
+    reverse: true,
+    question: "Saya merasa pekerjaan saya hanya sekadar rutinitas untuk memperoleh penghasilan."
+},
+{
+    aspek: "purposeful",
+    reverse: true,
+    question: "Saya tidak merasa memiliki keterikatan dengan organisasi tempat saya bekerja."
+},
+{
+    aspek: "purposeful",
+    reverse: true,
+    question: "Saya tetap bisa bekerja baik meskipun mengabaikan nilai-nilai perusahaan."
+},
+{
+    aspek: "purposeful",
+    reverse: false,
+    question: "Saya merasa kontribusi saya memberikan manfaat bagi banyak orang."
+},
+
+/* =================================
+   DYNAMIC ACTION
+   ================================= */
+
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya cepat menyesuaikan diri terhadap perubahan."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya mampu mengambil keputusan dalam waktu terbatas."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya aktif mencari informasi terbaru yang mendukung pekerjaan."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya senang mencoba teknologi baru yang relevan dengan pekerjaan."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya mampu bekerja efektif dalam kondisi yang dinamis."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya cepat merespon masalah yang muncul."
+},
+{
+    aspek: "dynamic",
+    reverse: true,
+    question: "Saya sering menunda pengambilan keputusan meskipun informasi sudah cukup."
+},
+{
+    aspek: "dynamic",
+    reverse: true,
+    question: "Saya merasa terganggu ketika prioritas pekerjaan berubah mendadak."
+},
+{
+    aspek: "dynamic",
+    reverse: true,
+    question: "Saya cenderung menolak perubahan yang mempengaruhi cara kerja saya."
+},
+{
+    aspek: "dynamic",
+    reverse: false,
+    question: "Saya terbiasa menyiapkan rencana cadangan ketika menghadapi risiko."
+}
+];
+
 
 let userAnswers = new Array(questions.length);
 
@@ -529,39 +978,9 @@ function selesaiTes() {
 
         }
 
-    addDoc(collection(db, "hasil_tes"), {
+    window.iqResult = iq;
 
-        nama: peserta.nama,
-
-        nip: peserta.nip,
-
-        jumlahBenar: score,
-
-        iq: iq,
-
-        kategori: kategori,
-
-        tanggal: new Date()
-
-    });
-
-    document.getElementById("text").innerHTML =
-        "Tes Selesai 🎉";
-
-    document.getElementById("answers").innerHTML =
-        "";
-
-    document.getElementById("result").innerHTML =
-
-        "Skor Benar: " + score +
-        " dari " + questions.length +
-
-        "<br><br>" +
-
-        "Estimasi IQ: " + iq +
-
-        "<br><br>";
-
+    konfirmasiKepribadian();
 
 }
 
@@ -656,5 +1075,367 @@ function startTimer() {
         }
 
     }, 1000);
+
+}
+let tahap = "iq";
+
+let personalityAnswers = [];
+
+let personalityScore = {
+    stres: 0,
+    percayaDiri: 0,
+    penyesuaian: 0,
+    integritas: 0,
+    growth: 0,
+    beyond: 0,
+    purposeful: 0,
+    dynamic: 0
+};
+
+function mulaiTesKepribadian(iq) {
+    
+    tahap = "personality";
+
+    window.iqResult = iq;
+
+    currentQuestion = 0;
+
+    personalityAnswers =
+        new Array(personalityQuestions.length);
+
+    tampilSoalKepribadian();
+
+    document.getElementById("timer").style.display =
+    "none";
+
+}
+
+function tampilSoalKepribadian() {
+
+    let q =
+        personalityQuestions[currentQuestion];
+
+    document.getElementById("text").innerHTML = `
+        <h2>
+            Kepribadian ${currentQuestion + 1}
+        </h2>
+
+        <p>
+            ${q.question}
+        </p>
+    `;
+
+    document.getElementById("answers").innerHTML = `
+
+    <label>
+    <input type="radio" name="answer" value="5">
+    Sangat Setuju
+    </label>
+
+    <label>
+    <input type="radio" name="answer" value="4">
+    Setuju
+    </label>
+
+    <label>
+    <input type="radio" name="answer" value="3">
+    Netral
+    </label>
+
+    <label>
+    <input type="radio" name="answer" value="2">
+    Tidak Setuju
+    </label>
+
+    <label>
+    <input type="radio" name="answer" value="1">
+    Sangat Tidak Setuju
+    </label>
+
+    <button onclick="nextPersonality()">
+    Next
+    </button>
+
+    `;
+}
+
+function nextPersonality() {
+
+    let selected =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+    if (!selected) {
+
+        alert("Pilih jawaban dahulu");
+
+        return;
+    }
+
+    personalityAnswers[currentQuestion] =
+        Number(selected.value);
+
+    currentQuestion++;
+
+    if (
+        currentQuestion >=
+        personalityQuestions.length
+    ) {
+
+        konfirmasiAkhir();
+
+        return;
+    }
+
+    tampilSoalKepribadian();
+
+}
+
+function konfirmasiKepribadian() {
+
+    document.getElementById("text").innerHTML = `
+    
+    <h2>Tes IQ Selesai</h2>
+
+    <p>
+    Terima kasih telah menyelesaikan Tes IQ.
+
+    Tahapan selanjutnya adalah Tes Kepribadian
+    yang terdiri dari 80 soal.
+
+    Pada tes ini tidak terdapat batas waktu pengerjaan.
+
+    Pastikan Anda menjawab sesuai kondisi diri yang sebenarnya.
+    </p>
+
+    `;
+
+    document.getElementById("answers").innerHTML = `
+
+    <button onclick="mulaiTesKepribadian(window.iqResult)">
+        Mulai Tes Kepribadian
+    </button>
+
+    `;
+
+}
+
+function konfirmasiAkhir() {
+
+    document.getElementById("text").innerHTML = `
+
+    <h2>Konfirmasi Penyelesaian</h2>
+
+    <p>
+    Pastikan Anda sudah mengecek seluruh jawaban
+    Tes Kepribadian.
+    </p>
+
+    <label>
+        <input type="checkbox"
+        id="confirmPersonality">
+
+        Saya sudah memastikan seluruh jawaban.
+    </label>
+
+    `;
+
+    document.getElementById("answers").innerHTML = `
+
+    <button onclick="finishAllTest()">
+        Selesai
+    </button>
+
+    `;
+
+}   
+
+function finishAllTest() {
+
+    let check =
+    document.getElementById("confirmPersonality");
+
+    if (!check || !check.checked) {
+
+        alert(
+            "Silakan centang konfirmasi terlebih dahulu."
+        );
+
+        return;
+    }
+
+    hitungPersonalityScore();
+
+    simpanHasil();
+
+}
+
+async function simpanHasil() {
+
+    hitungPersonalityScore();
+
+    console.log(personalityScore);
+
+    await addDoc(collection(db, "hasil_tes"), {
+
+        nama: peserta.nama,
+        nip: peserta.nip,
+
+        iq: window.iqResult,
+
+        stres: personalityScore.stres,
+        percayaDiri: personalityScore.percayaDiri,
+        penyesuaian: personalityScore.penyesuaian,
+        integritas: personalityScore.integritas,
+
+        growth: personalityScore.growth,
+        beyond: personalityScore.beyond,
+        purposeful: personalityScore.purposeful,
+        dynamic: personalityScore.dynamic,
+
+        rekomendasi: getRecommendation(),
+
+        tanggal: new Date()
+
+    });
+
+    document.getElementById("answers").innerHTML = "";
+
+    document.getElementById("text").innerHTML = `
+
+        <h2>Terima Kasih</h2>
+
+        <p>
+        Terima kasih telah mengikuti seluruh rangkaian assessment.
+        <br><br>
+        Hasil assessment telah berhasil direkam.
+        <br><br>
+        Silakan menunggu proses selanjutnya dari Human Capital.
+        </p>
+
+    `;
+
+}
+
+function getPersonalityValue(value, reverse) {
+
+    value = Number(value);
+
+    if (reverse) {
+
+        return 6 - value;
+
+    }
+
+    return value;
+
+}
+
+function hitungPersonalityScore() {
+
+    personalityScore = {
+        stres: 0,
+        percayaDiri: 0,
+        penyesuaian: 0,
+        integritas: 0,
+        growth: 0,
+        beyond: 0,
+        purposeful: 0,
+        dynamic: 0
+    };
+
+    for (let i = 0; i < personalityQuestions.length; i++) {
+
+        let soal = personalityQuestions[i];
+
+        let nilai =
+            getPersonalityValue(
+                personalityAnswers[i],
+                soal.reverse
+            );
+
+        personalityScore[soal.aspek] += nilai;
+
+    }
+
+}
+
+function jumlahAspekKuat() {
+
+    let kuat = 0;
+
+    Object.values(personalityScore)
+        .forEach(nilai => {
+
+        if (nilai >= 41) {
+
+            kuat++;
+
+        }
+
+    });
+
+    return kuat;
+
+}
+
+function jumlahAspekRendah() {
+
+    let rendah = 0;
+
+    Object.values(personalityScore)
+        .forEach(nilai => {
+
+        if (nilai <= 20) {
+
+            rendah++;
+
+        }
+
+    });
+
+    return rendah;
+
+}
+
+function getRecommendation() {
+
+    let iq = window.iqResult;
+
+    if (
+        iq === "< 85" ||
+        iq === "85 - 89" ||
+        iq === "90 - 94"
+    ) {
+
+        return "Tidak Disarankan";
+
+    }
+
+    if (
+        personalityScore.integritas <= 20 ||
+        personalityScore.stres <= 20
+    ) {
+
+        return "Tidak Disarankan";
+
+    }
+
+    if (jumlahAspekRendah() >= 3) {
+
+        return "Tidak Disarankan";
+
+    }
+
+    if (
+        jumlahAspekKuat() >= 6
+    ) {
+
+        return "Disarankan";
+
+    }
+
+    return "Dipertimbangkan";
 
 }
