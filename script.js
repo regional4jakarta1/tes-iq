@@ -1296,6 +1296,8 @@ async function simpanHasil() {
 
         rekomendasi: getRecommendation(),
 
+        alasan: getAlasan(),
+
         tanggal: new Date()
 
     });
@@ -1362,49 +1364,106 @@ function hitungPersonalityScore() {
     console.log("Jumlah Soal:", personalityQuestions.length);
     console.log("Skor:", personalityScore);
 
+    function konversiSkor(skor){
+
+    if(skor >= 40) return 3;
+
+    if(skor >= 25) return 2;
+
+    return 1;
+
+    }
+
+    personalityScore.stres =
+    konversiSkor(personalityScore.stres);
+
+    personalityScore.percayaDiri =
+    konversiSkor(personalityScore.percayaDiri);
+
+    personalityScore.penyesuaian =
+    konversiSkor(personalityScore.penyesuaian);
+
+    personalityScore.integritas =
+    konversiSkor(personalityScore.integritas);
+
+    personalityScore.growth =
+    konversiSkor(personalityScore.growth);
+
+    personalityScore.beyond =
+    konversiSkor(personalityScore.beyond);
+
+    personalityScore.purposeful =
+    konversiSkor(personalityScore.purposeful);
+
+    personalityScore.dynamic =
+    konversiSkor(personalityScore.dynamic);
+
 }
 
-function jumlahAspekKuat() {
+function getAlasan() {
 
-    let kuat = 0;
+    let alasan = [];
 
-    Object.values(personalityScore)
-        .forEach(nilai => {
+    if (personalityScore.stres === 1)
+        alasan.push("Daya Tahan Stres");
 
-        if (nilai >= 41) {
+    if (personalityScore.percayaDiri === 1)
+        alasan.push("Kepercayaan Diri");
 
-            kuat++;
+    if (personalityScore.penyesuaian === 1)
+        alasan.push("Penyesuaian Diri");
 
-        }
+    if (personalityScore.integritas === 1)
+        alasan.push("Integritas");
 
-    });
+    if (personalityScore.growth === 1)
+        alasan.push("Growth Mindset");
 
-    return kuat;
+    if (personalityScore.beyond === 1)
+        alasan.push("Beyond The Limit");
 
-}
+    if (personalityScore.purposeful === 1)
+        alasan.push("Purposeful Work");
 
-function jumlahAspekRendah() {
+    if (personalityScore.dynamic === 1)
+        alasan.push("Dynamic Action");
 
-    let rendah = 0;
+    if (
+        window.iqResult === "< 85" ||
+        window.iqResult === "85 - 89" ||
+        window.iqResult === "90 - 94"
+    ) {
 
-    Object.values(personalityScore)
-        .forEach(nilai => {
+        return "IQ di bawah standar minimum";
 
-        if (nilai <= 20) {
+    }
 
-            rendah++;
+    if (alasan.length === 0) {
 
-        }
+        return "-";
 
-    });
+    }
 
-    return rendah;
+    return alasan.join(", ");
 
 }
 
 function getRecommendation() {
 
     let iq = window.iqResult;
+
+    let aspekRendah = 0;
+
+    Object.values(personalityScore)
+    .forEach(nilai => {
+
+        if(nilai === 1){
+
+            aspekRendah++;
+
+        }
+
+    });
 
     if (
         iq === "< 85" ||
@@ -1417,28 +1476,29 @@ function getRecommendation() {
     }
 
     if (
-        personalityScore.integritas <= 20 ||
-        personalityScore.stres <= 20
+        personalityScore.integritas === 1
     ) {
-
-        return "Tidak Disarankan";
-
-    }
-
-    if (jumlahAspekRendah() >= 3) {
 
         return "Tidak Disarankan";
 
     }
 
     if (
-        jumlahAspekKuat() >= 6
+        aspekRendah > 2
     ) {
 
-        return "Disarankan";
+        return "Tidak Disarankan";
 
     }
 
-    return "Dipertimbangkan";
+    if (
+        aspekRendah > 0
+    ) {
+
+        return "Dipertimbangkan";
+
+    }
+
+    return "Disarankan";
 
 }
