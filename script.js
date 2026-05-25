@@ -941,40 +941,45 @@ function selesaiTes() {
     let kategori = "";
 
    
-        if (score <= 19) {
+        if (score <= 25) {
 
             iq = "< 85";
             kategori = "Low";
 
-        } else if (score <= 24) {
+        } else if (score <= 31) {
 
             iq = "85 - 89";
             kategori = "Below Average";
 
-        } else if (score <= 29) {
+        } else if (score <= 37) {
 
             iq = "90 - 94";
             kategori = "Average";
 
-        } else if (score <= 34) {
+        } else if (score <= 40) {
 
             iq = "95 - 104";
             kategori = "Standard";
 
-        } else if (score <= 39) {
+        } else if (score <= 43) {
 
             iq = "105 - 114";
             kategori = "Above Average";
 
-        } else if (score <= 44) {
+        } else if (score <= 46) {
 
-            iq = "115 - 124";
+            iq = "115 - 119";
             kategori = "Superior";
+
+        } else if (score <= 48) {
+
+            iq = "120 - 124";
+            kategori = "Very Superior";
 
         } else {
 
             iq = "125+";
-            kategori = "Very Superior";
+            kategori = "Exceptional";
 
         }
 
