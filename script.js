@@ -1403,18 +1403,23 @@ function hitungPersonalityScore() {
                 soal.reverse
             );
 
-        personalityScore[soal.aspek] += nilai;
+        if(personalityScore.hasOwnProperty(soal.aspect)){
+
+            personalityScore[soal.aspect] += nilai;
+
+        }
 
     }
 
     console.log("Jumlah Soal:", personalityQuestions.length);
     console.log("Skor:", personalityScore);
+    console.log("SKOR MENTAH", personalityScore);
 
     function konversiSkor(skor){
 
-    if(skor >= 48) return 3;
+    if(skor >= 45) return 3;
 
-    if(skor >= 42) return 2;
+    if(skor >= 38) return 2;
 
     return 1;
     }
