@@ -344,445 +344,486 @@ let questions = [
 
 const personalityQuestions = [
 
-/* =================================
-   DAYA TAHAN STRES
-   ================================= */
-
 {
-    aspek: "stres",
-    reverse: false,
-    question: "Saya tetap tenang ketika menghadapi tekanan pekerjaan."
-},
-{
-    aspek: "stres",
-    reverse: false,
-    question: "Saya mampu bekerja efektif meskipun tenggat waktu sangat ketat."
-},
-{
-    aspek: "stres",
-    reverse: false,
-    question: "Saya dapat berpikir jernih ketika menghadapi masalah mendadak."
-},
-{
-    aspek: "stres",
-    reverse: false,
-    question: "Saya tetap fokus meskipun harus menangani banyak pekerjaan sekaligus."
-},
-{
-    aspek: "stres",
-    reverse: false,
-    question: "Saya mampu mengendalikan emosi ketika menghadapi situasi sulit."
-},
-{
-    aspek: "stres",
-    reverse: false,
-    question: "Saya cepat bangkit setelah mengalami kegagalan."
-},
-{
-    aspek: "stres",
-    reverse: true,
-    question: "Ketika pekerjaan menumpuk saya mudah panik."
-},
-{
-    aspek: "stres",
-    reverse: true,
-    question: "Tekanan pekerjaan sering membuat saya kehilangan fokus."
-},
-{
-    aspek: "stres",
-    reverse: true,
-    question: "Saya mudah menyerah ketika menghadapi hambatan besar."
-},
-{
-    aspek: "stres",
-    reverse: true,
-    question: "Masalah pribadi sering mengganggu pekerjaan saya."
+aspect:"stres",
+reverse:true,
+question:"Ketika menghadapi beberapa tuntutan sekaligus, saya cenderung kehilangan fokus pada prioritas utama."
 },
 
-/* =================================
-   KEPERCAYAAN DIRI
-   ================================= */
-
 {
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya yakin mampu menyelesaikan tugas baru yang diberikan kepada saya."
-},
-{
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya berani menyampaikan pendapat dalam diskusi."
-},
-{
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya nyaman berbicara di depan kelompok."
-},
-{
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya percaya diri menghadapi tantangan baru."
-},
-{
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya berani mengambil tanggung jawab yang lebih besar."
-},
-{
-    aspek: "percayaDiri",
-    reverse: false,
-    question: "Saya yakin dapat mencapai target yang ditetapkan."
-},
-{
-    aspek: "percayaDiri",
-    reverse: true,
-    question: "Saya sering meragukan kemampuan diri sendiri."
-},
-{
-    aspek: "percayaDiri",
-    reverse: true,
-    question: "Saya takut menyampaikan ide karena khawatir salah."
-},
-{
-    aspek: "percayaDiri",
-    reverse: true,
-    question: "Saya cenderung menghindari tugas yang menantang."
-},
-{
-    aspek: "percayaDiri",
-    reverse: true,
-    question: "Saya merasa kemampuan saya berada di bawah rekan kerja lainnya."
-}
-/* =================================
-   PENYESUAIAN DIRI
-   ================================= */
-
-,
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya mudah beradaptasi dengan lingkungan kerja baru."
-},
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya nyaman bekerja dengan berbagai tipe orang."
-},
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya mampu menyesuaikan cara komunikasi sesuai lawan bicara."
-},
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya dapat bekerja efektif meskipun terjadi perubahan dalam pekerjaan."
-},
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya menghargai perbedaan pendapat."
-},
-{
-    aspek: "penyesuaian",
-    reverse: false,
-    question: "Saya mampu menjaga hubungan kerja yang baik dengan rekan kerja."
-},
-{
-    aspek: "penyesuaian",
-    reverse: true,
-    question: "Saya merasa tidak nyaman bekerja dengan orang yang berbeda karakter dengan saya."
-},
-{
-    aspek: "penyesuaian",
-    reverse: true,
-    question: "Saya sulit menerima pendapat yang berbeda dengan pandangan saya."
-},
-{
-    aspek: "penyesuaian",
-    reverse: true,
-    question: "Saya kesulitan menyesuaikan diri ketika masuk ke lingkungan baru."
-},
-{
-    aspek: "penyesuaian",
-    reverse: true,
-    question: "Saya mudah terlibat konflik ketika terjadi perbedaan pendapat."
+aspect:"stres",
+reverse:false,
+question:"Saya tetap dapat berpikir jernih meskipun berada dalam tekanan yang tinggi."
 },
 
-/* =================================
-   INTEGRITAS
-   ================================= */
-
 {
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya tetap jujur meskipun hal tersebut dapat merugikan diri saya sendiri."
-},
-{
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya bertanggung jawab atas kesalahan yang saya lakukan."
-},
-{
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya menjaga kepercayaan yang diberikan kepada saya."
-},
-{
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya tidak memanfaatkan jabatan atau posisi untuk kepentingan pribadi."
-},
-{
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya konsisten antara ucapan dan tindakan."
-},
-{
-    aspek: "integritas",
-    reverse: false,
-    question: "Saya memegang komitmen yang telah saya buat."
-},
-{
-    aspek: "integritas",
-    reverse: true,
-    question: "Melanggar aturan kecil masih dapat dibenarkan dalam kondisi tertentu."
-},
-{
-    aspek: "integritas",
-    reverse: true,
-    question: "Kepentingan pribadi terkadang lebih penting daripada kepentingan organisasi."
-},
-{
-    aspek: "integritas",
-    reverse: true,
-    question: "Saya pernah menyembunyikan informasi agar tidak disalahkan."
-},
-{
-    aspek: "integritas",
-    reverse: true,
-    question: "Saya memilih diam meskipun mengetahui ada tindakan yang tidak sesuai aturan."
-}
-/* =================================
-   GROWTH MINDSET
-   ================================= */
-
-,
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya senang mempelajari hal-hal baru."
-},
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya menerima kritik sebagai sarana pengembangan diri."
-},
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya tidak malu mengakui kesalahan yang saya lakukan."
-},
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya melihat kegagalan sebagai kesempatan belajar."
-},
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya selalu mencari cara untuk meningkatkan kemampuan diri."
-},
-{
-    aspek: "growth",
-    reverse: false,
-    question: "Saya tertarik mencoba metode kerja baru."
-},
-{
-    aspek: "growth",
-    reverse: true,
-    question: "Saya merasa tidak nyaman mengakui kesalahan kepada orang lain."
-},
-{
-    aspek: "growth",
-    reverse: true,
-    question: "Kegagalan biasanya membuat saya enggan mencoba lagi."
-},
-{
-    aspek: "growth",
-    reverse: true,
-    question: "Saya lebih suka menggunakan cara lama daripada mencoba pendekatan baru."
-},
-{
-    aspek: "growth",
-    reverse: true,
-    question: "Jika hasil awal buruk, saya cenderung kehilangan motivasi."
+aspect:"stres",
+reverse:true,
+question:"Kesalahan kecil yang saya buat sering terus saya pikirkan hingga mengganggu pekerjaan berikutnya."
 },
 
-/* =================================
-   BEYOND THE LIMIT
-   ================================= */
-
 {
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya berusaha memberikan hasil kerja melebihi standar minimum."
-},
-{
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya bersedia membantu pekerjaan lain demi tercapainya target tim."
-},
-{
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya memiliki rencana kerja yang jelas."
-},
-{
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya terbiasa menentukan prioritas pekerjaan."
-},
-{
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya memiliki inisiatif tanpa harus selalu menunggu arahan."
-},
-{
-    aspek: "beyond",
-    reverse: false,
-    question: "Saya tetap berusaha mencapai target yang menantang."
-},
-{
-    aspek: "beyond",
-    reverse: true,
-    question: "Saya kesulitan bekerja efektif ketika sumber daya terbatas."
-},
-{
-    aspek: "beyond",
-    reverse: true,
-    question: "Saya lebih suka menunggu instruksi daripada mengambil inisiatif."
-},
-{
-    aspek: "beyond",
-    reverse: true,
-    question: "Saya jarang menyiapkan alternatif solusi ketika menghadapi masalah."
-},
-{
-    aspek: "beyond",
-    reverse: true,
-    question: "Saya menghindari target yang terlalu menantang."
+aspect:"stres",
+reverse:false,
+question:"Saya mampu menjaga kualitas kerja meskipun menghadapi tenggat waktu yang ketat."
 },
 
-/* =================================
-   PURPOSEFUL WORK
-   ================================= */
-
 {
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya merasa pekerjaan yang saya lakukan memiliki makna dan manfaat."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya merasa bangga menjadi bagian dari organisasi tempat saya bekerja."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya menjaga nama baik perusahaan dalam kehidupan sehari-hari."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya mengutamakan kepentingan organisasi dibanding kepentingan pribadi saat bekerja."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya menjalankan pekerjaan sesuai nilai dan aturan perusahaan."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya menjaga kerahasiaan informasi perusahaan."
-},
-{
-    aspek: "purposeful",
-    reverse: true,
-    question: "Saya merasa pekerjaan saya hanya sekadar rutinitas untuk memperoleh penghasilan."
-},
-{
-    aspek: "purposeful",
-    reverse: true,
-    question: "Saya tidak merasa memiliki keterikatan dengan organisasi tempat saya bekerja."
-},
-{
-    aspek: "purposeful",
-    reverse: true,
-    question: "Saya tetap bisa bekerja baik meskipun mengabaikan nilai-nilai perusahaan."
-},
-{
-    aspek: "purposeful",
-    reverse: false,
-    question: "Saya merasa kontribusi saya memberikan manfaat bagi banyak orang."
+aspect:"stres",
+reverse:true,
+question:"Ketidakpastian dalam pekerjaan membuat saya sulit mengambil keputusan."
 },
 
-/* =================================
-   DYNAMIC ACTION
-   ================================= */
+{
+aspect:"stres",
+reverse:false,
+question:"Saya dapat memisahkan masalah pribadi dari tanggung jawab pekerjaan."
+},
 
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya cepat menyesuaikan diri terhadap perubahan."
+aspect:"stres",
+reverse:true,
+question:"Saat situasi tidak berjalan sesuai rencana, saya mudah kehilangan semangat."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya mampu mengambil keputusan dalam waktu terbatas."
+aspect:"stres",
+reverse:false,
+question:"Saya tetap tenang ketika harus menangani keluhan atau komplain yang berat."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya aktif mencari informasi terbaru yang mendukung pekerjaan."
+aspect:"stres",
+reverse:true,
+question:"Tekanan pekerjaan sering membuat saya menunda keputusan penting."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya senang mencoba teknologi baru yang relevan dengan pekerjaan."
+aspect:"stres",
+reverse:false,
+question:"Saya mampu beradaptasi dengan perubahan tanpa mengurangi produktivitas."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya mampu bekerja efektif dalam kondisi yang dinamis."
+aspect:"percayaDiri",
+reverse:true,
+question:"Saya sering meragukan kemampuan saya meskipun memiliki pengalaman yang cukup."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya cepat merespon masalah yang muncul."
+aspect:"percayaDiri",
+reverse:false,
+question:"Saya berani menyampaikan pendapat meskipun berbeda dengan mayoritas."
 },
+
 {
-    aspek: "dynamic",
-    reverse: true,
-    question: "Saya sering menunda pengambilan keputusan meskipun informasi sudah cukup."
+aspect:"percayaDiri",
+reverse:true,
+question:"Saya lebih nyaman jika keputusan penting dibuat oleh orang lain."
 },
+
 {
-    aspek: "dynamic",
-    reverse: true,
-    question: "Saya merasa terganggu ketika prioritas pekerjaan berubah mendadak."
+aspect:"percayaDiri",
+reverse:false,
+question:"Saya yakin dapat mempelajari tugas baru dengan cepat."
 },
+
 {
-    aspek: "dynamic",
-    reverse: true,
-    question: "Saya cenderung menolak perubahan yang mempengaruhi cara kerja saya."
+aspect:"percayaDiri",
+reverse:true,
+question:"Saya sering menahan ide karena khawatir dianggap kurang tepat."
 },
+
 {
-    aspek: "dynamic",
-    reverse: false,
-    question: "Saya terbiasa menyiapkan rencana cadangan ketika menghadapi risiko."
-}
+aspect:"percayaDiri",
+reverse:false,
+question:"Saya tetap yakin pada keputusan saya setelah mempertimbangkan berbagai informasi."
+},
+
+{
+aspect:"percayaDiri",
+reverse:true,
+question:"Penilaian negatif dari orang lain mudah mempengaruhi keyakinan saya."
+},
+
+{
+aspect:"percayaDiri",
+reverse:false,
+question:"Saya merasa nyaman mengambil tanggung jawab yang lebih besar."
+},
+
+{
+aspect:"percayaDiri",
+reverse:true,
+question:"Saya cenderung menghindari situasi yang menuntut saya tampil di depan banyak orang."
+},
+
+{
+aspect:"percayaDiri",
+reverse:false,
+question:"Saya percaya kemampuan saya dapat memberikan kontribusi yang berarti."
+},
+
+{
+aspect:"penyesuaian",
+reverse:true,
+question:"Saya membutuhkan waktu yang lama untuk menerima perubahan cara kerja."
+},
+
+{
+aspect:"penyesuaian",
+reverse:false,
+question:"Saya dapat bekerja dengan baik bersama orang yang memiliki karakter berbeda."
+},
+
+{
+aspect:"penyesuaian",
+reverse:true,
+question:"Saya merasa tidak nyaman ketika harus berpindah dari rutinitas yang sudah terbiasa."
+},
+
+{
+aspect:"penyesuaian",
+reverse:false,
+question:"Saya mudah menyesuaikan gaya komunikasi sesuai lawan bicara."
+},
+
+{
+aspect:"penyesuaian",
+reverse:true,
+question:"Perubahan kebijakan sering membuat saya kehilangan motivasi kerja."
+},
+
+{
+aspect:"penyesuaian",
+reverse:false,
+question:"Saya dapat menerima masukan tanpa merasa diserang secara pribadi."
+},
+
+{
+aspect:"penyesuaian",
+reverse:true,
+question:"Saya lebih memilih mempertahankan cara lama dibanding mencoba pendekatan baru."
+},
+
+{
+aspect:"penyesuaian",
+reverse:false,
+question:"Saya dapat bekerja efektif meskipun kondisi kerja berubah."
+},
+
+{
+aspect:"penyesuaian",
+reverse:true,
+question:"Saya merasa sulit membangun hubungan dengan lingkungan kerja baru."
+},
+
+{
+aspect:"penyesuaian",
+reverse:false,
+question:"Saya mampu melihat perubahan sebagai peluang untuk berkembang."
+},
+
+{
+aspect:"integritas",
+reverse:true,
+question:"Dalam kondisi tertentu, mengabaikan prosedur dapat dibenarkan selama hasilnya baik."
+},
+
+{
+aspect:"integritas",
+reverse:false,
+question:"Saya tetap mematuhi aturan meskipun tidak ada pengawasan langsung."
+},
+
+{
+aspect:"integritas",
+reverse:true,
+question:"Menutupi kesalahan kecil terkadang lebih baik daripada memperbesar masalah."
+},
+
+{
+aspect:"integritas",
+reverse:false,
+question:"Saya merasa bertanggung jawab atas dampak dari keputusan yang saya ambil."
+},
+
+{
+aspect:"integritas",
+reverse:true,
+question:"Loyalitas kepada rekan kerja kadang lebih penting daripada melaporkan pelanggaran."
+},
+
+{
+aspect:"integritas",
+reverse:false,
+question:"Saya berusaha menjaga kesesuaian antara ucapan dan tindakan."
+},
+
+{
+aspect:"integritas",
+reverse:true,
+question:"Jika target tercapai, cara mencapainya tidak selalu perlu diperhatikan."
+},
+
+{
+aspect:"integritas",
+reverse:false,
+question:"Saya tetap menyampaikan informasi penting meskipun berpotensi tidak menyenangkan."
+},
+
+{
+aspect:"integritas",
+reverse:true,
+question:"Aturan tertentu dapat disesuaikan jika kondisi lapangan menuntut."
+},
+
+{
+aspect:"integritas",
+reverse:false,
+question:"Saya lebih memilih hasil yang benar daripada hasil yang cepat."
+},
+
+{
+aspect:"growth",
+reverse:true,
+question:"Jika cara yang saya gunakan sudah berhasil, saya jarang merasa perlu mencari pendekatan baru."
+},
+
+{
+aspect:"growth",
+reverse:false,
+question:"Saya melihat kesalahan sebagai kesempatan untuk belajar."
+},
+
+{
+aspect:"growth",
+reverse:true,
+question:"Saya lebih nyaman menguasai kemampuan yang sudah ada daripada mempelajari hal baru."
+},
+
+{
+aspect:"growth",
+reverse:false,
+question:"Saya tertarik memahami alasan di balik keberhasilan maupun kegagalan suatu pekerjaan."
+},
+
+{
+aspect:"growth",
+reverse:true,
+question:"Masukan yang bertentangan dengan cara berpikir saya biasanya sulit saya terima."
+},
+
+{
+aspect:"growth",
+reverse:false,
+question:"Saya berusaha meningkatkan kemampuan meskipun tidak diminta atasan."
+},
+
+{
+aspect:"growth",
+reverse:true,
+question:"Saya merasa kemampuan seseorang umumnya tidak banyak berubah seiring waktu."
+},
+
+{
+aspect:"growth",
+reverse:false,
+question:"Saya menikmati tantangan yang memaksa saya belajar hal baru."
+},
+
+{
+aspect:"growth",
+reverse:true,
+question:"Saya lebih memilih tugas yang sudah saya kuasai dibanding tugas yang belum pernah saya kerjakan."
+},
+
+{
+aspect:"growth",
+reverse:false,
+question:"Saya percaya kemampuan dapat berkembang melalui usaha dan pembelajaran."
+},
+
+{
+aspect:"beyond",
+reverse:true,
+question:"Saya cenderung bekerja sesuai target minimum yang ditetapkan."
+},
+
+{
+aspect:"beyond",
+reverse:false,
+question:"Saya sering mencari cara untuk memberikan hasil yang lebih baik dari yang diminta."
+},
+
+{
+aspect:"beyond",
+reverse:true,
+question:"Jika target sudah tercapai, saya jarang merasa perlu melakukan upaya tambahan."
+},
+
+{
+aspect:"beyond",
+reverse:false,
+question:"Saya tetap berusaha memberikan kontribusi meskipun bukan tanggung jawab utama saya."
+},
+
+{
+aspect:"beyond",
+reverse:true,
+question:"Saya lebih memilih menjaga ritme kerja yang nyaman daripada mengambil tantangan tambahan."
+},
+
+{
+aspect:"beyond",
+reverse:false,
+question:"Saya terdorong untuk mencapai standar yang lebih tinggi daripada ekspektasi umum."
+},
+
+{
+aspect:"beyond",
+reverse:true,
+question:"Saya menghindari tugas yang memiliki risiko gagal meskipun peluang keberhasilannya besar."
+},
+
+{
+aspect:"beyond",
+reverse:false,
+question:"Saya bersedia menginvestasikan waktu dan tenaga ekstra demi hasil yang lebih baik."
+},
+
+{
+aspect:"beyond",
+reverse:true,
+question:"Saya jarang mengevaluasi apakah hasil kerja saya bisa ditingkatkan lagi."
+},
+
+{
+aspect:"beyond",
+reverse:false,
+question:"Saya merasa puas ketika mampu melampaui target yang diberikan."
+},
+
+{
+aspect:"purposeful",
+reverse:true,
+question:"Bagi saya yang terpenting adalah pekerjaan selesai, terlepas dari dampaknya."
+},
+
+{
+aspect:"purposeful",
+reverse:false,
+question:"Saya merasa pekerjaan saya memiliki kontribusi terhadap tujuan yang lebih besar."
+},
+
+{
+aspect:"purposeful",
+reverse:true,
+question:"Saya jarang memikirkan bagaimana pekerjaan saya mempengaruhi orang lain."
+},
+
+{
+aspect:"purposeful",
+reverse:false,
+question:"Saya memahami alasan mengapa tugas yang saya kerjakan penting untuk organisasi."
+},
+
+{
+aspect:"purposeful",
+reverse:true,
+question:"Saya lebih fokus pada rutinitas harian daripada tujuan jangka panjang pekerjaan."
+},
+
+{
+aspect:"purposeful",
+reverse:false,
+question:"Saya termotivasi ketika memahami manfaat pekerjaan bagi banyak pihak."
+},
+
+{
+aspect:"purposeful",
+reverse:true,
+question:"Saya merasa cukup bekerja sesuai instruksi tanpa perlu memahami tujuan akhirnya."
+},
+
+{
+aspect:"purposeful",
+reverse:false,
+question:"Saya berusaha menyelaraskan pekerjaan saya dengan tujuan organisasi."
+},
+
+{
+aspect:"purposeful",
+reverse:true,
+question:"Saya jarang mempertanyakan apakah pekerjaan yang saya lakukan memberikan nilai tambah."
+},
+
+{
+aspect:"purposeful",
+reverse:false,
+question:"Saya merasa lebih bersemangat ketika mengetahui dampak positif pekerjaan saya."
+},
+
+{
+aspect:"dynamic",
+reverse:true,
+question:"Saya lebih nyaman menunggu arahan daripada mengambil inisiatif terlebih dahulu."
+},
+
+{
+aspect:"dynamic",
+reverse:false,
+question:"Saya sering mengambil langkah awal ketika melihat peluang perbaikan."
+},
+
+{
+aspect:"dynamic",
+reverse:true,
+question:"Saya biasanya menunggu kepastian penuh sebelum mulai bertindak."
+},
+
+{
+aspect:"dynamic",
+reverse:false,
+question:"Saya mampu bergerak cepat meskipun informasi yang tersedia belum lengkap."
+},
+
+{
+aspect:"dynamic",
+reverse:true,
+question:"Saya cenderung menunda tindakan sampai ada instruksi yang jelas."
+},
+
+{
+aspect:"dynamic",
+reverse:false,
+question:"Saya aktif mencari solusi sebelum masalah menjadi lebih besar."
+},
+
+{
+aspect:"dynamic",
+reverse:true,
+question:"Saya lebih suka menjadi pengikut daripada penggerak dalam suatu perubahan."
+},
+
+{
+aspect:"dynamic",
+reverse:false,
+question:"Saya berinisiatif membantu menyelesaikan masalah meskipun tidak diminta."
+},
+
+{
+aspect:"dynamic",
+reverse:true,
+question:"Saya sering menunggu orang lain memulai terlebih dahulu."
+},
+
+{
+aspect:"dynamic",
+reverse:false,
+question:"Saya nyaman mengambil tindakan ketika situasi membutuhkan respons cepat."
+},
+
 ];
 
 
@@ -1371,12 +1412,11 @@ function hitungPersonalityScore() {
 
     function konversiSkor(skor){
 
-    if(skor >= 46) return 3;
+    if(skor >= 48) return 3;
 
-    if(skor >= 36) return 2;
+    if(skor >= 42) return 2;
 
     return 1;
-
     }
 
     personalityScore.stres =
@@ -1505,5 +1545,4 @@ function getRecommendation() {
     }
 
     return "Disarankan";
-
 }
