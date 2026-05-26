@@ -1417,9 +1417,9 @@ function hitungPersonalityScore() {
 
     function konversiSkor(skor){
 
-    if(skor >= 42) return 3;
+    if(skor >= 40) return 3;
 
-    if(skor >= 35) return 2;
+    if(skor >= 32) return 2;
 
     return 1;
     }
